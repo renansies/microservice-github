@@ -13,7 +13,7 @@
 	<artifactId>microservice-github</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>microservice-github</name>
-	<description>IBM Challenge</description>
+	<description>API REST para listar todos os repositórios de um determinado usuário do GitHub.</description>
 
 	<properties>
 		<java.version>1.8</java.version>

@@ -3,11 +3,13 @@ package com.ibm.br.service;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Base64;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -29,7 +31,7 @@ public class GithubServiceImpl implements GithubService{
 	private RestTemplate restTemplate;
 
 	@Override
-	public List<RepositorySummary> findRepositoriesByUser(GithubUser user) {
+	public Page<RepositorySummary> findRepositoriesByUser(Pageable page, GithubUser user) {
 		log.info("Request service to get repositories by github user");
 		String auth = user.getUsername() + ":" + user.getPassword();
 		byte[] encodedAuth = Base64.getEncoder().encode(auth.getBytes(Charset.forName("US-ASCII")));
@@ -43,7 +45,7 @@ public class GithubServiceImpl implements GithubService{
 		HttpEntity<?> entity = new HttpEntity<>(headers);
 		
 		ResponseEntity<RepositorySummary[]> response = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, entity, RepositorySummary[].class); 
-		return Arrays.asList(response.getBody());
+		return new PageImpl<>(Arrays.asList(response.getBody()), page, Arrays.asList(response.getBody()).size());
 	}
 
 }

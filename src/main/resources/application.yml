@@ -1,7 +1,7 @@
 server:
   port: 8080
 keycloak:
-  realm: Demo-Realm
+  realm: SpringBootKeycloak
   auth-server-url: http://keycloak-rsies-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/auth
   ssl-required: external
   resource: gateway-microservice

@@ -1,4 +1,4 @@
-package com.ibm.br.security;
+package com.ibm.br.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;

@@ -2,10 +2,10 @@ server:
   port: 8080
 keycloak:
   realm: Demo-Realm
-  auth-server-url: http://localhost:8080/auth
+  auth-server-url: http://keycloak-rsies-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/auth
   ssl-required: external
   resource: gateway-microservice
   credentials:
-    secret: XXXXXXXXXXXXXXXXXXXXXXXXX
+    secret: 8c8c42a2-a29c-45ee-a3df-2f8b3e3d3094
   use-resource-role-mappings: true
   bearer-only: true

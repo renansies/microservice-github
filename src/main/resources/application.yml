@@ -9,3 +9,4 @@ keycloak:
     secret: 8c8c42a2-a29c-45ee-a3df-2f8b3e3d3094
   use-resource-role-mappings: true
   bearer-only: true
+  disable-trust-manager: true

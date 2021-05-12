@@ -39,13 +39,25 @@ public class GithubController {
 
 	@RolesAllowed("admin")
 	@GetMapping("/admin")
-	public ResponseEntity<String> adminRoleTesting(@RequestHeader(value = "Authorization") String authorization) {
+	public ResponseEntity<String> adminRoleTesting(@RequestHeader String Authorization) {
 		return ResponseEntity.ok("Hello Admin");
 	}
 
+	@RolesAllowed({ "admin", "user" })
 	@GetMapping("/all-user")
 	public ResponseEntity<String> allUserRoleTesting() {
 		return ResponseEntity.ok("Hello All Users");
+	}
+
+	@GetMapping("/anonymous")
+	public ResponseEntity<String> anonymousRoleTesting() {
+		return ResponseEntity.ok("Hello Anonymous");
+	}
+
+	@RolesAllowed("user")
+	@GetMapping("/user")
+	public ResponseEntity<String> userRoleTesting() {
+		return ResponseEntity.ok("Hello User");
 	}
 }
 

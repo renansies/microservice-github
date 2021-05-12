@@ -3,7 +3,7 @@ server:
 keycloak:
   realm: SpringBootKeycloak
   auth-server-url: https://keycloak-rsies-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/auth
-  ssl-required: false
+  ssl-required: NONE
   resource: gateway-microservice
   credentials:
     secret: 8c8c42a2-a29c-45ee-a3df-2f8b3e3d3094

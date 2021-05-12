@@ -39,7 +39,7 @@ public class GithubController {
 
 	@RolesAllowed("admin")
 	@GetMapping("/admin")
-	public ResponseEntity<String> adminRoleTesting() {
+	public ResponseEntity<String> adminRoleTesting(@RequestHeader(value = "Authorization") String authorization) {
 		return ResponseEntity.ok("Hello Admin");
 	}
 
